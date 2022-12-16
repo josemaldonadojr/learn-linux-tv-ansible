@@ -14,4 +14,12 @@ If you set the *inventory* and *private_key_file* options in the *ansible.cfg* f
 
 `ansible all --list-hosts`
 
-Lists all the hosts in the inventory file specified in the ansible.cfg configuration file.
+* Lists all the hosts in the inventory file specified in the ansible.cfg configuration file.
+
+`ansible all -m gather_facts`
+
+* Gathers information about managed hosts
+
+`ansible all -m gather_facts --limit 10.211.55.3`
+
+* --limit: Option that can be used with the ansible command to specify a subset of hosts to run the command on.
