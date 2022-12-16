@@ -46,3 +46,25 @@ If you set the *inventory* and *private_key_file* options in the *ansible.cfg* f
 `ansible all -m apt -a "upgrade=dist" --become --ask-become-pass`
 
 * Upgrade all the package updates that are available
+
+### Playbook
+
+A playbook is YAML file that describes a set of tasks that need to be executed on a remote host or a group of hosts. It is used to automate and manage the configuration of a system or a set of systems in an organized and easy-to-use way.
+
+A playbook consists of a list of one or more plays, and each play specifies a set of tasks that are executed on a particular host or group of hosts. Each task is a simple action, such as installing a package or copying a file.
+
+> playbook.yml
+```
+- name: Update db servers
+  hosts: all
+
+  tasks:
+  - name: Ensure postgresql is at the latest version
+    ansible.builtin.apt:
+      name: postgresql
+      state: latest
+  - name: Ensure that postgresql is started
+    ansible.builtin.service:
+      name: postgresql
+      state: started
+```
