@@ -34,3 +34,15 @@ If you set the *inventory* and *private_key_file* options in the *ansible.cfg* f
 * The apt module will update the package cache on the target host(s), which is a local repository of package files used to speed up the installation of new packages.
 
 <img width="427" alt="image" src="https://user-images.githubusercontent.com/47704702/208181960-cdf08c55-4e47-42f0-8015-3b4832ab16cb.png">
+
+`ansible all -m apt -a name=vim-nox --become --ask-become-pass`
+
+* Install a package via the apt module
+
+`ansible all -m apt -a "name=linux-headers-arm64 state=latest" --become --ask-become-pass`
+
+* Install a package via the apt module, and also make sure it’s the latest version available
+
+`ansible all -m apt -a "upgrade=dist" --become --ask-become-pass`
+
+* Upgrade all the package updates that are available
