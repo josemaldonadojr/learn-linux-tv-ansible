@@ -23,3 +23,14 @@ If you set the *inventory* and *private_key_file* options in the *ansible.cfg* f
 `ansible all -m gather_facts --limit 10.211.55.3`
 
 * --limit: Option that can be used with the ansible command to specify a subset of hosts to run the command on.
+
+### Running elevated ad-hoc Commands
+
+`ansible all -m apt -a update_cache=true --become --ask-become-pass`
+
+* The command runs the apt module with the update_cache=true argument on all of the hosts specified in the Ansible inventory file.
+* The --become flag indicates that the task should be run with escalated privileges.
+* The --ask-become-pass flag prompts the user to enter the password for the privilege escalation method (e.g., sudo) when running the command.
+* The apt module will update the package cache on the target host(s), which is a local repository of package files used to speed up the installation of new packages.
+
+<img width="427" alt="image" src="https://user-images.githubusercontent.com/47704702/208181960-cdf08c55-4e47-42f0-8015-3b4832ab16cb.png">
