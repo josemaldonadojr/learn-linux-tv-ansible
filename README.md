@@ -68,3 +68,7 @@ A playbook consists of a list of one or more plays, and each play specifies a se
       name: postgresql
       state: started
 ```
+
+`ansible-playbook playbook.yml  --become --ask-become-pass`
+
+* Running a playbook
