@@ -1,0 +1,12 @@
+- name: Update db servers
+  hosts: all
+
+  tasks:
+  - name: Ensure postgresql is at the latest version
+    ansible.builtin.apt:
+      name: postgresql
+      state: latest
+  - name: Ensure that postgresql is started
+    ansible.builtin.service:
+      name: postgresql
+      state: started
